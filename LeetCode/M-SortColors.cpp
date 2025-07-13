@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include <iostream>
 #include <strings.h>
+#include <utility>
+#include <vector>
 using namespace std;
 
 #define fast_io()                                                              \
@@ -17,6 +19,31 @@ void __setup() {
   freopen("_input.txt", "r", stdin);
   // freopen("_output.txt", "w", stdout);
 #endif
+}
+
+// Dutch National Flag Algorithm
+// Single pass O(n)
+// 0..low-1     -> 0
+// low..mid-1   -> 1
+// high+1..n-1  -> 2
+void dutchNationalFlagAlgo(vector<int> &nums) {
+  vector<int>::iterator low, mid, high;
+  low = nums.begin();
+  mid = nums.begin();
+  high = nums.end() - 1;
+  while (mid <= high) {
+    switch (*mid) {
+    case 0:
+      iter_swap(mid++, low++);
+      break;
+    case 1:
+      mid++;
+      break;
+    case 2:
+      iter_swap(mid, high--);
+      break;
+    }
+  }
 }
 
 void sortColors(vector<int> &nums) {
