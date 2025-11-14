@@ -18,13 +18,13 @@ static uint16_t dbg_test_no = 0;
 #define dbg_tab             << "\t" <<
 #define dbg_newline         << "\n" <<
 
-#define dbg_var(var)        cout << #var << ": " << var << "\n"
-#define dbg_var_t(var)      cout << #var << ": " << var << "\t"
-#define dbg_nl()            cout << "\n"
+#define dbg_var(var)        cout << #var << ": " << var << endl
+#define dbg_var_t(var)      cout << #var << ": " << var << "\t" << flush
+#define dbg_nl()            cout << endl
 
-#define dbg_print(...)      cout << __VA_ARGS__
-#define dbg_println(...)    cout << __VA_ARGS__ << "\n"
-#define dbg_cprint(...)     printf(__VA_ARGS__)
+#define dbg_print(...)      cout << __VA_ARGS__ << flush
+#define dbg_println(...)    cout << __VA_ARGS__ << endl
+#define dbg_cprint(...)     printf(__VA_ARGS__); fflush(stdout)
 // clang-format on
 
 #define dbg_cprintln(...)                                                      \
